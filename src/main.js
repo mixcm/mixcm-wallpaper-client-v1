@@ -12,7 +12,9 @@ import VueAxios from 'vue-axios'
 
 import '../static/css/app.css'
 
+import VueLazyload from 'vue-lazyload'
 
+Vue.use(VueLazyload)
 Vue.use(ElementUI)
 Vue.use(VueAxios, axios)
 
