@@ -10,8 +10,6 @@ import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-import '../static/css/app.css'
-
 import VueLazyload from 'vue-lazyload'
 
 Vue.use(VueLazyload)

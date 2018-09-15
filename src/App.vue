@@ -29,17 +29,19 @@
 </script>
 
 <style>
-  #mixcm-header .mixcm-wrapper {
-    height: 500px;
+  body {
+    margin: 0;
+    background-color: #f3f3f3;
   }
 
-  #mixcm-header .mixcm-wrapper .background {
-    background-attachment: fixed;
-    background-image: url('https://i.loli.net/2018/08/25/5b810426c3e1b.jpg');
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 
+  .mixcm-container {
+      max-width: 1200px;
+      position: relative;
+      margin: 0 auto;
+  }
 </style>
