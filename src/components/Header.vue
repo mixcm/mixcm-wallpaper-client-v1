@@ -56,21 +56,55 @@
     background-size: cover;
     position: absolute;
     z-index: -1;
-  }
-
-  #mixcm-header .mixcm-wrapper .mixcm-search {
-    width: 600px;
+    top: 0;
   }
 
   #mixcm-header .mixcm-wrapper .mixcm-major {
     color: #fff;
   }
 
-  #mixcm-header .mixcm-wrapper .mixcm-major > * {
-    margin-top: 0;
-    margin-bottom: 2rem;
+  #mixcm-header .mixcm-wrapper .mixcm-major h1 {
+    font-size: 2.5rem
   }
 
+  #mixcm-header .mixcm-wrapper .mixcm-major p {
+    font-size: 1.2rem
+  }
+
+  #mixcm-header .mixcm-wrapper .mixcm-major>* {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  #mixcm-header .mixcm-wrapper .mixcm-search {
+    width: 680px;
+    margin-bottom: 15px;
+    position: relative;
+  }
+
+  #mixcm-header .mixcm-wrapper .mixcm-search input {
+    background-color: #fff;
+    opacity: .98;
+    padding: 13px 17px;
+    width: 100%;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+  }
+
+  #mixcm-header .mixcm-wrapper .mixcm-search button {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  #mixcm-header .mixcm-wrapper .mixcm-tags a {
+    background-color: #fff;
+    opacity: .98;
+    padding: 2px 7px;
+    border-radius: 3px;
+  }
 
   #mixcm-header .mixcm-tab {
     height: 50px;
