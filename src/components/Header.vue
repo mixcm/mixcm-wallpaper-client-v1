@@ -21,7 +21,9 @@
     </div>
     <div class="mixcm-tab" v-if="$route.matched[0].path !== '/detail/:id'">
       <router-link tag="a" :to="'/'">首页</router-link>
-      <router-link tag="a" :to="'/class/view'">分类</router-link>
+      <router-link tag="a" :to="'/class/scene'">场景</router-link>
+      <router-link tag="a" :to="'/class/role'">角色</router-link>
+      <router-link tag="a" :to="'/class/camera'">摄像</router-link>
     </div>
   </div>
 </template>

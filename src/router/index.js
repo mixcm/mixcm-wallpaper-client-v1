@@ -11,6 +11,7 @@ export default new Router({
   routes: [
     { path: '/', component: Home },
     { path: '/detail/:id', component: Detail },
-    { path: '/tag/:slug', component: Tag }
+    { path: '/tag/:slug', component: Tag },
+    { path: '/class/:slug', component: Tag }
   ]
 })

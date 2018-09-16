@@ -25,7 +25,7 @@
 
   #mixcm-footer .mixcm-copyright {
     opacity: .9;
-    background-image: url(https: //i.loli.net/2018/08/25/5b810426c3e1b.jpg);
+    background-image: url(https://i.loli.net/2018/08/25/5b810426c3e1b.jpg);
       background-attachment: fixed;
     background-size: cover;
     background-position: 50%;
