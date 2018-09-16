@@ -11,7 +11,11 @@
           <input type="search" name="wd" placeholder="请在这里输入关键词搜索╮(￣▽￣)╭" autocomplete="off">
           <button type="submit"><i class="mdui-icon material-icons">search</i></button>
         </form>
-        <div class="mixcm-tags"></div>
+        <div class="mixcm-tags">
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+        </div>
       </div>
       <div class="background"></div>
     </div>
