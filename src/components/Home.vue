@@ -1,6 +1,14 @@
 <template>
   <div id="mixcm-content">
     <div class="mixcm-container">
+      <el-carousel trigger="click" height="500px" style="margin: 10px;border-radius: 3px;">
+        <el-carousel-item v-for="item in items" :key="item.id">
+          <img :src="item.urls.small" style="    width: 100%;
+    display: block;
+    height: 100%;
+    object-fit: cover;">
+        </el-carousel-item>
+      </el-carousel>
       <waterfall :align="'center'" :line-gap="400" :line="10" :watch="items">
         <!-- each component is wrapped by a waterfall slot -->
         <waterfall-slot v-for="(item, index) in items" :width="item.width" :height="item.height" :order="index" :key="item.id">
