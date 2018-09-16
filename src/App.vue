@@ -31,7 +31,6 @@
 <style>
   body {
     margin: 0;
-    background-color: #f3f3f3;
   }
 
   a {

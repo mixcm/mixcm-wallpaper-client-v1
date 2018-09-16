@@ -5,7 +5,7 @@
         <!-- each component is wrapped by a waterfall slot -->
         <waterfall-slot v-for="(item, index) in items" :width="item.width" :height="item.height" :order="index" :key="item.id">
           <div class="mixcm-item">
-            <router-link tag="a" :to="'/detail/'+item.id"><img v-lazy="item.urls.regular"></router-link>
+            <router-link tag="a" :to="'/detail/'+item.id"><img v-lazy="item.urls.small"></router-link>
             <div class="class"> {{ item.color }}</div>
           </div>
         </waterfall-slot>
@@ -44,8 +44,11 @@
 </script>
 
 <style>
+  #mixcm-content .vue-waterfall-slot {}
+
   #mixcm-content .mixcm-item {
-    background-color: #fff;
+    background-color: #f3f3f3;
+    height: calc(100% - 20px);
     width: calc(100% - 20px);
     margin: 10px;
     border-radius: 3px;
@@ -53,8 +56,10 @@
   }
 
   #mixcm-content .mixcm-item img {
-    width: 100%;
+        width: 100%;
     display: block;
+    height: 100%;
+    object-fit: cover;
   }
 
   #mixcm-content .mixcm-item .class {
