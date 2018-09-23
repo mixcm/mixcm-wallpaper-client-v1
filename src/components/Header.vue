@@ -4,14 +4,37 @@
     <div class="mixcm-wrapper" v-if="$route.matched[0].path !== '/detail/:id'">
       <div class="mixcm-container">
         <div class="mixcm-major">
-          <h1>觅漫者</h1>
           <p>迷茫的人也终将会寻找到那个美丽的地方。</p>
         </div>
-        <form class="mixcm-search" action="/search/">
-          <input type="search" name="wd" placeholder="请在这里输入关键词搜索╮(￣▽￣)╭" autocomplete="off">
-          <button type="submit"><i class="mdui-icon material-icons">search</i></button>
+        <form class="mixcm-search" @submit.prevent="submit">
+          <router-link tag="a" :to="'/'" class="mixcm-logo"></router-link>
+          <input type="search" v-model="keyword" name="wd" placeholder="请在这里输入关键词搜索╮(￣▽￣)╭" autocomplete="off">
+          <button type="submit"><i class="nexmoefont icon-search"></i></button>
         </form>
         <div class="mixcm-tags">
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          v<router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
           <router-link tag="a" :to="'/tag/233'">233</router-link>
           <router-link tag="a" :to="'/tag/233'">233</router-link>
           <router-link tag="a" :to="'/tag/233'">233</router-link>
@@ -30,7 +53,18 @@
 
 <script>
   export default {
-    name: 'Header',
+    data() {
+      return {
+        keyword: ''
+      }
+    },
+    methods: {
+      submit: function () {
+        this.$router.push({
+          path: '/search/' + this.keyword
+        })
+      }
+    },
   }
 
 </script>
@@ -49,6 +83,10 @@
     position: relative;
   }
 
+  #mixcm-header .mixcm-wrapper .mixcm-container {
+    padding: 0 10px;
+  }
+
   #mixcm-header .mixcm-wrapper .background {
     background-attachment: fixed;
     background-image: url('https://i.loli.net/2018/08/25/5b810426c3e1b.jpg');
@@ -59,6 +97,16 @@
     position: absolute;
     z-index: -1;
     top: 0;
+  }
+
+  #mixcm-header .mixcm-wrapper .background:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .4) 40%, rgba(0, 0, 0, .4) 70%, rgba(0, 0, 0, .5));
   }
 
   #mixcm-header .mixcm-wrapper .mixcm-major {
@@ -76,36 +124,68 @@
   #mixcm-header .mixcm-wrapper .mixcm-major>* {
     margin-top: 0;
     margin-bottom: 15px;
+    text-align: center;
   }
 
   #mixcm-header .mixcm-wrapper .mixcm-search {
-    width: 680px;
+    max-width: 680px;
     margin-bottom: 15px;
     position: relative;
   }
 
+  #mixcm-header .mixcm-wrapper .mixcm-search .mixcm-logo {
+    transition: .3s all;
+    width: 47px;
+    height: 47px;
+    position: absolute;
+    margin: 7px;
+    margin-left: 8px;
+    border-radius: 100%;
+    z-index: 1;
+    overflow: hidden;
+    background-image: url('https://i.loli.net/2018/09/22/5ba60d67f0c9c.png');
+    background-size: 100%;
+  }
+
   #mixcm-header .mixcm-wrapper .mixcm-search input {
     background-color: #fff;
-    opacity: .98;
-    padding: 13px 17px;
+    padding: 21px 63px;
     width: 100%;
-    border-radius: 3px;
+    border-radius: 50px;
     outline: none;
     border: none;
     font-size: 1rem;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.6);
   }
 
   #mixcm-header .mixcm-wrapper .mixcm-search button {
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
+    width: 47px;
+    height: 47px;
+    margin: 7px;
+    margin-right: 8px;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: rgb(117, 117, 117);
+  }
+
+  #mixcm-header .mixcm-wrapper .mixcm-tags {
+    text-align: center;
+    max-width: 680px;
+    font-size: 0;
   }
 
   #mixcm-header .mixcm-wrapper .mixcm-tags a {
     background-color: #fff;
-    opacity: .98;
-    padding: 2px 7px;
-    border-radius: 3px;
+    padding: 3px 8px;
+    border-radius: 50px;
+    margin: 3px;
+    display: inline-block;
+    font-size: 15px;
   }
 
   #mixcm-header .mixcm-tab {
@@ -122,6 +202,7 @@
   }
 
   #mixcm-header .mixcm-tab a {
+    transition: .3s all;
     display: inline-block;
     min-width: 90px;
   }
