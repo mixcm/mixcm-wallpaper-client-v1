@@ -9,7 +9,7 @@
           </div>
         </el-carousel-item>
       </el-carousel>
-      <Item :items="items" :api="api"></Item>
+      <Item :api="api" :page="page"></Item>
     </div>
   </div>
 </template>

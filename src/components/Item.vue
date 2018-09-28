@@ -16,8 +16,12 @@
   import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
 
   export default {
+    data() {
+      return {
+        items: String,
+      }
+    },
     props: {
-      items: String,
       api: String,
       page: Number,
     },
@@ -25,6 +29,17 @@
       Waterfall,
       WaterfallSlot
     },
+    created: function () {
+      this.axios.get(
+          this.api+'&per_page=30&page='+this.page
+        )
+        .then((res) => {
+          this.items = res.data;
+        })
+        .catch(function (error) {
+          console.log(error)
+        });
+    }
   }
 
 </script>
