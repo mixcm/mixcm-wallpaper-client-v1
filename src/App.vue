@@ -70,7 +70,7 @@
 
   @media screen and (max-width:800px) {
     .mixcm-container {
-      max-width: 400px;
+      max-width: 100%;
     }
   }
 

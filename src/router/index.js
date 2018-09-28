@@ -5,8 +5,6 @@ import Detail from '@/components/Detail'
 import Tag from '@/components/Tag'
 import Search from '@/components/Search'
 
-
-
 Vue.use(Router)
 
 export default new Router({
@@ -15,7 +13,7 @@ export default new Router({
     return { x: 0, y: 0 }
   },
   routes: [
-    { path: '/', component: Home, meta: { title: '觅漫者 - 迷茫的寻觅者'} },
+    { path: '/', component: Home, meta: {title: '觅漫者 - 迷茫的寻觅者'} },
     { path: '/detail/:id', component: Detail },
     { path: '/tag/:slug', component: Tag },
     { path: '/class/:slug', component: Tag },

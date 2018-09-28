@@ -1,6 +1,6 @@
 <template>
-  <waterfall :align="'center'" :line-gap="400" :max-line-gap="400" :line="10" :watch="items">
-     {{ title }}
+  <waterfall :line-gap="400" :min-line-gap="200" :max-line-gap="400" :watch="items" ref="waterfall">
+    {{ title }}
     <!-- each component is wrapped by a waterfall slot -->
     <waterfall-slot v-for="(item, index) in items" :width="item.width" :height="item.height" :order="index" :key="item.id">
       <div class="mixcm-item">
@@ -28,7 +28,6 @@
 </script>
 
 <style>
-
   #mixcm-content .mixcm-item {
     background-color: #f3f3f3;
     height: calc(100% - 20px);

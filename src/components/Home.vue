@@ -21,6 +21,7 @@
     data() {
       return {
         items: String,
+        page: 1,
       }
     },
     components: {
@@ -28,7 +29,7 @@
     },
     created: function () {
       this.axios.get(
-          'https://api.unsplash.com/photos/?client_id=0d095f7c17a870835c4b9aae20fa4ffcafb7ba4cb0c627668dfe56561a6fa83c&orientation=landscape'
+          'https://api.unsplash.com/photos/?client_id=0d095f7c17a870835c4b9aae20fa4ffcafb7ba4cb0c627668dfe56561a6fa83c&per_page=30&page='+this.page
         )
         .then((res) => {
           this.items = res.data;

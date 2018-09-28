@@ -8,7 +8,8 @@
         </div>
         <form class="mixcm-search" @submit.prevent="submit">
           <router-link tag="a" :to="'/'" class="mixcm-logo"></router-link>
-          <input type="search" v-model="keyword" name="wd" placeholder="请在这里输入关键词搜索╮(￣▽￣)╭" autocomplete="off">
+          <el-input placeholder="在这里输入关键词搜索╮(￣▽￣)╭" v-model="keyword" size="large" clearable>
+          </el-input>
           <button type="submit"><i class="nexmoefont icon-search"></i></button>
         </form>
         <div class="mixcm-tags">
@@ -32,7 +33,7 @@
           <router-link tag="a" :to="'/tag/233'">233</router-link>
           <router-link tag="a" :to="'/tag/233'">233</router-link>
           <router-link tag="a" :to="'/tag/233'">233</router-link>
-          v<router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/tag/233'">233</router-link>
           <router-link tag="a" :to="'/tag/233'">233</router-link>
           <router-link tag="a" :to="'/tag/233'">233</router-link>
           <router-link tag="a" :to="'/tag/233'">233</router-link>
@@ -40,9 +41,9 @@
           <router-link tag="a" :to="'/tag/233'">233</router-link>
         </div>
       </div>
-      <div class="background"></div>
+      <div class="background" v-bind:style="{backgroundImage:'url(' + this.background + ')'}"></div>
     </div>
-    <div class="mixcm-tab" v-if="$route.matched[0].path !== '/detail/:id'">
+    <div class="mixcm-tab" v-if="$route.matched[0].path !== '/detail/:id' && $route.matched[0].path !== '/tag/:slug' && $route.matched[0].path !== '/search/:keyword'">
       <router-link tag="a" :to="'/'">首页</router-link>
       <router-link tag="a" :to="'/class/scene'">场景</router-link>
       <router-link tag="a" :to="'/class/role'">角色</router-link>
@@ -55,7 +56,8 @@
   export default {
     data() {
       return {
-        keyword: ''
+        keyword: '',
+        background: 'https://i.loli.net/2018/08/25/5b810426c3e1b.jpg'
       }
     },
     methods: {
@@ -89,7 +91,6 @@
 
   #mixcm-header .mixcm-wrapper .background {
     background-attachment: fixed;
-    background-image: url('https://i.loli.net/2018/08/25/5b810426c3e1b.jpg');
     height: 100%;
     width: 100%;
     background-position: center;
@@ -130,16 +131,21 @@
   #mixcm-header .mixcm-wrapper .mixcm-search {
     max-width: 680px;
     margin-bottom: 15px;
+    box-sizing: border-box;
     position: relative;
+    background-color: #fff;
+    padding: 11px 63px;
+    width: 100%;
+    border-radius: 50px;
   }
 
   #mixcm-header .mixcm-wrapper .mixcm-search .mixcm-logo {
     transition: .3s all;
-    width: 47px;
-    height: 47px;
+    width: 48px;
+    height: 48px;
     position: absolute;
-    margin: 7px;
-    margin-left: 8px;
+    top: 7px;
+    left: 8px;
     border-radius: 100%;
     z-index: 1;
     overflow: hidden;
@@ -147,23 +153,23 @@
     background-size: 100%;
   }
 
+  #mixcm-header .mixcm-wrapper .mixcm-search .el-input {
+    margin: 0 -13px;
+    padding: 0 16px;
+  }
+
   #mixcm-header .mixcm-wrapper .mixcm-search input {
-    background-color: #fff;
-    padding: 21px 63px;
-    width: 100%;
-    border-radius: 50px;
-    outline: none;
     border: none;
+    padding-left: 0;
     font-size: 1rem;
-    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.6);
   }
 
   #mixcm-header .mixcm-wrapper .mixcm-search button {
     position: absolute;
     top: 0;
     right: 0;
-    width: 47px;
-    height: 47px;
+    width: 48px;
+    height: 48px;
     margin: 7px;
     margin-right: 8px;
     outline: none;
