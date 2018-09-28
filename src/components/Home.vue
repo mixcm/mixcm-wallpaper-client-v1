@@ -9,7 +9,7 @@
           </div>
         </el-carousel-item>
       </el-carousel>
-      <Item :items="items"></Item>
+      <Item :items="items" :api="api"></Item>
     </div>
   </div>
 </template>
@@ -22,6 +22,7 @@
       return {
         items: String,
         page: 1,
+        api: 'https://api.unsplash.com/photos/?client_id=0d095f7c17a870835c4b9aae20fa4ffcafb7ba4cb0c627668dfe56561a6fa83c',
       }
     },
     components: {

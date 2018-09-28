@@ -18,6 +18,8 @@
   export default {
     props: {
       items: String,
+      api: String,
+      page: Number,
     },
     components: {
       Waterfall,
