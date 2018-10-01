@@ -4,7 +4,7 @@
     <!-- each component is wrapped by a waterfall slot -->
     <waterfall-slot v-for="(item, index) in items" :width="item.width" :height="item.height" :order="index" :key="item.id">
       <div class="mixcm-item">
-        <router-link tag="a" :to="'/detail/'+item.id"><img v-lazy="item.urls.small"></router-link>
+        <router-link tag="a" :to="'/detail/'+item.aid"><img v-lazy="item.urls.small"></router-link>
         <div class="class"> {{ item.color }}</div>
       </div>
     </waterfall-slot>
@@ -18,11 +18,10 @@
   export default {
     data() {
       return {
-        items: String,
+        items: String
       }
     },
     props: {
-      api: String,
       page: Number,
     },
     components: {
@@ -30,9 +29,11 @@
       WaterfallSlot
     },
     created: function () {
-      this.axios.get(
-          this.api+'&per_page=30&page='+this.page
-        )
+      this.axios.get('http://localhost:1002/api/index.php/wallpaper', {
+          params: {
+            page: this.page,
+          }
+        })
         .then((res) => {
           this.items = res.data;
         })
@@ -52,6 +53,17 @@
     margin: 10px;
     border-radius: 3px;
     overflow: hidden;
+    animation: loading .7s infinite linear alternate;
+  }
+
+  @keyframes loading {
+    0% {
+      background-color: #f3f3f3;
+    }
+
+    to {
+      background-color: #eaeaea;
+    }
   }
 
   #mixcm-content .mixcm-item img {

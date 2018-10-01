@@ -13,38 +13,38 @@
           <button type="submit"><i class="nexmoefont icon-search"></i></button>
         </form>
         <div class="mixcm-tags">
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
-          <router-link tag="a" :to="'/tag/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search/233'">233</router-link>
         </div>
       </div>
       <div class="background" v-bind:style="{backgroundImage:'url(' + this.background + ')'}"></div>
     </div>
-    <div class="mixcm-tab" v-if="$route.matched[0].path !== '/detail/:id' && $route.matched[0].path !== '/tag/:slug' && $route.matched[0].path !== '/search/:keyword'">
-      <router-link tag="a" :to="'/'">首页</router-link>
+    <div class="mixcm-tab" v-if="$route.matched[0].path !== '/detail/:id' && $route.matched[0].path !== '/search/:slug' && $route.matched[0].path !== '/search/:keyword'">
+      <router-link tag="a" :to="'/'">最新</router-link>
       <router-link tag="a" :to="'/class/scene'">场景</router-link>
       <router-link tag="a" :to="'/class/role'">角色</router-link>
       <router-link tag="a" :to="'/class/camera'">摄像</router-link>

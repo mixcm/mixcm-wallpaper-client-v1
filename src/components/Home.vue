@@ -1,15 +1,15 @@
 <template>
   <div id="mixcm-content">
     <div class="mixcm-container">
-      <el-carousel trigger="click" height="240px" type="card" style="margin: 10px 10px 0 10px;">
+      <!--<el-carousel trigger="click" height="240px" type="card" style="margin: 10px 10px 0 10px;">
         <el-carousel-item v-for="item in items" :key="item.id">
           <div class="mixcm-item">
             <router-link tag="a" :to="'/detail/'+item.id"><img v-lazy="item.urls.small"></router-link>
             <div class="class"> {{ item.color }}</div>
           </div>
         </el-carousel-item>
-      </el-carousel>
-      <Item :api="api" :page="page"></Item>
+      </el-carousel>-->
+      <Item :page="page"></Item>
     </div>
   </div>
 </template>
@@ -22,7 +22,6 @@
       return {
         items: String,
         page: 1,
-        api: 'https://api.unsplash.com/photos/?client_id=0d095f7c17a870835c4b9aae20fa4ffcafb7ba4cb0c627668dfe56561a6fa83c',
       }
     },
     components: {
