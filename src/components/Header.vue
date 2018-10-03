@@ -7,47 +7,46 @@
           <p>迷茫的人也终将会寻找到那个美丽的地方。</p>
         </div>
         <form class="mixcm-search" @submit.prevent="submit">
-          <router-link tag="a" :to="'/'" class="mixcm-logo"></router-link>
+          <router-link tag="a" :to="'/'" class="mixcm-logo">
+          </router-link>
           <el-input placeholder="在这里输入关键词搜索╮(￣▽￣)╭" v-model="keyword" size="large" clearable>
           </el-input>
           <button type="submit"><i class="nexmoefont icon-search"></i></button>
         </form>
         <div class="mixcm-tags">
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
-          <router-link tag="a" :to="'/search/233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
         </div>
       </div>
       <div class="background" v-bind:style="{backgroundImage:'url(' + this.background + ')'}"></div>
     </div>
-    <div class="mixcm-tab" v-if="$route.matched[0].path !== '/detail/:id' && $route.matched[0].path !== '/search/:slug' && $route.matched[0].path !== '/search/:keyword'">
-      <router-link tag="a" :to="'/'">最新</router-link>
-      <router-link tag="a" :to="'/class/scene'">场景</router-link>
-      <router-link tag="a" :to="'/class/role'">角色</router-link>
-      <router-link tag="a" :to="'/class/camera'">摄像</router-link>
+    <div class="mixcm-tab" v-if="$route.matched[0].path !== '/detail/:id' && $route.matched[0].path !== '/search/:slug' && $route.matched[0].path !== '/search'">
+      <router-link tag="a" to="/">最新</router-link>
+      <router-link v-for="(item, index) in tabs" :order="index" :key="item.id" tag="a" :to="{ path: '/class/'+item.slug, params: { name: item.name }}">{{ item.name }}</router-link>
     </div>
   </div>
 </template>
@@ -56,17 +55,36 @@
   export default {
     data() {
       return {
-        keyword: '',
-        background: 'https://i.loli.net/2018/08/25/5b810426c3e1b.jpg'
+        keyword: this.$route.query.keyword,
+        background: 'https://i.loli.net/2018/10/02/5bb2624020a46.jpg',
+        tabs: String,
       }
+    },
+    created: function () {
+      this.axios.get(this.GLOBAL.API+'/meta', {
+            params: {
+              type: 'class',
+            }
+          })
+          .then((res) => {
+            this.tabs = res.data;
+          })
+          .catch(function (error) {
+            console.log(error)
+          });
     },
     methods: {
       submit: function () {
         this.$router.push({
-          path: '/search/' + this.keyword
+          path: '/search', query:{ keyword:this.keyword }
         })
       }
     },
+    watch: {
+      $route(to, from) {
+        this.keyword = this.$route.query.keyword;
+      }
+    }
   }
 
 </script>
@@ -149,7 +167,7 @@
     border-radius: 100%;
     z-index: 1;
     overflow: hidden;
-    background-image: url('https://i.loli.net/2018/09/22/5ba60d67f0c9c.png');
+    background-image: url('../assets/logo.png');
     background-size: 100%;
   }
 
@@ -162,6 +180,7 @@
     border: none;
     padding-left: 0;
     font-size: 1rem;
+    background-color: transparent;
   }
 
   #mixcm-header .mixcm-wrapper .mixcm-search button {
@@ -186,7 +205,8 @@
   }
 
   #mixcm-header .mixcm-wrapper .mixcm-tags a {
-    background-color: #fff;
+    background-color: rgba(222, 222, 222, 0.3);
+    color: #fff;
     padding: 3px 8px;
     border-radius: 50px;
     margin: 3px;
@@ -203,7 +223,7 @@
   }
 
   #mixcm-header .mixcm-tab .router-link-exact-active {
-    color: #ff7475;
+    color: #ff6e6e;
     text-shadow: 0 0 1px;
   }
 
