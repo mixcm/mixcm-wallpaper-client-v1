@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header />
-    <router-view />
-    <Footer />
+    <Header/>
+    <router-view/>
+    <Footer/>
   </div>
 </template>
 
@@ -12,16 +12,24 @@
 
   export default {
     name: 'App',
+    data() {
+      return {
+        init: true
+      }
+    },
     components: {
       Header,
       Footer,
     },
   }
+
   import router from './router'
   router.beforeEach((to, from, next) => {
-    /* 路由发生变化修改页面title */
     if (to.meta.title) {
-      document.title = to.meta.title
+      var title = to.meta.title.replace(/Q:keyword/, to.query.keyword)
+                               .replace(/P:name/, to.params.name)
+                               .replace(/P:slug/, to.params.slug);
+      document.title = title;
     }
     next()
   })
@@ -75,18 +83,16 @@
   }
 
   #mixcm-content {
-    animation: wish-appear .4s;
+    animation: wish-appear .9s;
   }
 
   @keyframes wish-appear {
     0% {
       opacity: 0;
-      transform: translateY(80px)
     }
 
     to {
       opacity: 1;
-      transform: translateY(0)
     }
   }
 
