@@ -12,6 +12,9 @@ import VueAxios from 'vue-axios'
 
 import VueLazyload from 'vue-lazyload'
 
+import global from '@/components/Global';
+Vue.prototype.GLOBAL = global;
+
 Vue.use(VueLazyload)
 Vue.use(ElementUI)
 Vue.use(VueAxios, axios)
