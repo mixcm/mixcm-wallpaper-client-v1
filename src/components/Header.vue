@@ -21,7 +21,7 @@
     </div>
     <div class="mixcm-tab" v-if="$route.matched[0].path !== '/detail/:aid' && $route.matched[0].path !== '/search/:slug' && $route.matched[0].path !== '/search'">
       <router-link tag="a" to="/">最新</router-link>
-      <!--<router-link v-for="(item, index) in tabs" :order="index" :key="item.id" tag="a" :to="'/class/'+item.slug">{{ item.name }}</router-link>-->
+      <router-link v-for="(item, index) in tabs" :order="index" :key="item.id" tag="a" :to="'/class/'+item.slug">{{ item.name }}</router-link>
     </div>
   </div>
 </template>
