@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header/>
-    <router-view/>
-    <Footer/>
+    <Header />
+    <router-view />
+    <Footer />
   </div>
 </template>
 
@@ -12,11 +12,6 @@
 
   export default {
     name: 'App',
-    data() {
-      return {
-        init: true
-      }
-    },
     components: {
       Header,
       Footer,
@@ -26,9 +21,10 @@
   import router from './router'
   router.beforeEach((to, from, next) => {
     if (to.meta.title) {
-      var title = to.meta.title.replace(/Q:keyword/, to.query.keyword)
-                               .replace(/P:name/, to.params.name)
-                               .replace(/P:slug/, to.params.slug);
+      var title = to.meta.title
+        .replace(/Q:keyword/, to.query.keyword)
+        .replace(/Q:name/, )
+        .replace(/P:slug/, to.params.slug);
       document.title = title;
     }
     next()

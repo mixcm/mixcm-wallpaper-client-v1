@@ -1,10 +1,10 @@
 <template>
   <div id="mixcm-header">
     <div class="mixcm-topbar"></div>
-    <div class="mixcm-wrapper" v-if="$route.matched[0].path !== '/detail/:id'">
+    <div class="mixcm-wrapper" v-if="$route.matched[0].path !== '/detail/:aid'">
       <div class="mixcm-container">
         <div class="mixcm-major">
-          <p>迷茫的人也终将会寻找到那个美丽的地方。</p>
+          <p>迷茫的人也终将会寻找到那个美丽的地方</p>
         </div>
         <form class="mixcm-search" @submit.prevent="submit">
           <router-link tag="a" :to="'/'" class="mixcm-logo">
@@ -14,39 +14,14 @@
           <button type="submit"><i class="nexmoefont icon-search"></i></button>
         </form>
         <div class="mixcm-tags">
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
-          <router-link tag="a" :to="'/search?keyword=233'">233</router-link>
+          <router-link v-for="(item, index) in tags" :order="index" :key="item.id" tag="a" :to="'/search?keyword='+item.name">{{ item.name }}</router-link>
         </div>
       </div>
       <div class="background" v-bind:style="{backgroundImage:'url(' + this.background + ')'}"></div>
     </div>
-    <div class="mixcm-tab" v-if="$route.matched[0].path !== '/detail/:id' && $route.matched[0].path !== '/search/:slug' && $route.matched[0].path !== '/search'">
+    <div class="mixcm-tab" v-if="$route.matched[0].path !== '/detail/:aid' && $route.matched[0].path !== '/search/:slug' && $route.matched[0].path !== '/search'">
       <router-link tag="a" to="/">最新</router-link>
-      <router-link v-for="(item, index) in tabs" :order="index" :key="item.id" tag="a" :to="{ path: '/class/'+item.slug, params: { name: item.name }}">{{ item.name }}</router-link>
+      <!--<router-link v-for="(item, index) in tabs" :order="index" :key="item.id" tag="a" :to="'/class/'+item.slug">{{ item.name }}</router-link>-->
     </div>
   </div>
 </template>
@@ -58,27 +33,40 @@
         keyword: this.$route.query.keyword,
         background: 'https://i.loli.net/2018/10/02/5bb2624020a46.jpg',
         tabs: String,
+        tags: String
       }
     },
-    created: function () {
-      this.axios.get(this.GLOBAL.API+'/meta', {
-            params: {
-              type: 'class',
-            }
-          })
-          .then((res) => {
-            this.tabs = res.data;
-          })
-          .catch(function (error) {
-            console.log(error)
-          });
+     created: function () {
+      this.axios.get(this.GLOBAL.API + '/meta', {
+          params: {
+            type: 'class',
+          }
+        })
+        .then((res) => {
+          this.tabs = res.data;
+        })
+        .catch(function (error) {
+          console.log(error)
+        });
+      this.axios.get(this.GLOBAL.API + '/meta', {
+          params: {
+            type: 'tag',
+          }
+        })
+        .then((res) => {
+          this.tags = res.data;
+        })
+        .catch(function (error) {
+          console.log(error)
+        });
     },
     methods: {
       submit: function () {
         this.$router.push({
           path: '/search', query:{ keyword:this.keyword }
         })
-      }
+      },
+
     },
     watch: {
       $route(to, from) {
@@ -155,6 +143,7 @@
     padding: 11px 63px;
     width: 100%;
     border-radius: 50px;
+    min-width: 460px;
   }
 
   #mixcm-header .mixcm-wrapper .mixcm-search .mixcm-logo {

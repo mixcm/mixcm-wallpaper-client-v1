@@ -1,13 +1,12 @@
 <template>
   <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="1000"
     infinite-scroll-throttle-delay="0">
-    {{ slug }} {{ page }}
     <waterfall :line-gap="400" :min-line-gap="200" :max-line-gap="400" :watch="items" ref="waterfall">
       <!-- each component is wrapped by a waterfall slot -->
       <waterfall-slot v-for="(item, index) in items" :key="item.id" :width="item.width" :height="item.height" :order="index">
         <div class="mixcm-item">
           <router-link tag="a" :to="'/detail/'+item.aid"><img v-lazy="item.urls.small"></router-link>
-          <div class="class"> {{ item.color }}</div>
+          <div class="class"> {{ item.meta.class.name }}</div>
         </div>
       </waterfall-slot>
     </waterfall>
@@ -63,6 +62,8 @@
         if (this.page == null) {
           this.page = 1;
         }
+        this.busy = true;
+        this.loading = true;
         this.axios.get(this.GLOBAL.API+'/wallpaper', {
             params: {
               page: this.page,
@@ -72,10 +73,12 @@
           })
           .then((res) => {
             this.items = res.data;
+            this.busy = false;
           })
           .catch(function (error) {
             console.log(error)
           });
+        this.loading = false;
       },
       loadMore: function () {
         this.busy = true;
@@ -117,7 +120,7 @@
       $route(to, from) {
         this.slug = this.$route.params.slug;
         this.page = this.$route.params.page;
-        this.keyword = this.$route.query.keyword;
+        this.busy = false;
         this.loadInit();
       }
     }
