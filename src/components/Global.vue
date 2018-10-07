@@ -1,5 +1,5 @@
 <script>
-  const API = 'http://localhost:1002/api/index.php';
+  const API = 'https://wallpaper.mixcm.com/api';
 
   export default {
     API,
