@@ -27,7 +27,7 @@
         page: this.$route.query.page,
         slug: this.$route.query.slug,
         keyword: this.$route.query.keyword,
-        items: '123456789',
+        items: String,
       }
     },
     directives: {
@@ -121,7 +121,6 @@
         this.slug = this.$route.params.slug;
         this.page = this.$route.params.page;
         this.busy = false;
-        this.loadInit();
       }
     }
   }

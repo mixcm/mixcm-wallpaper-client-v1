@@ -33,7 +33,7 @@
   export default {
     data() {
       return {
-        item: '1'
+        item: String
       }
     },
     methods: {
