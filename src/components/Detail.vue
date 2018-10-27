@@ -78,6 +78,10 @@
     height: 100%;
   }
 
+  #mixcm-content .mixcm-wallpaper .mixcm-pic .mixcm-cover img {
+    cursor: pointer;
+  }
+
   #mixcm-content .mixcm-wallpaper .mixcm-pic > .mixcm-background {
     position: absolute;
     top: 0;

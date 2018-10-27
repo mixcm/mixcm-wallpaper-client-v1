@@ -82,7 +82,7 @@
   }
 
   #mixcm-content {
-    animation: wish-appear .9s;
+    /* animation: wish-appear .9s; */
   }
 
   @keyframes wish-appear {
