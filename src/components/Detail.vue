@@ -19,7 +19,7 @@
         <a class="collect"><i class="nexmoefont icon-eye"></i><p>浏览</p></a>
       </el-badge>
       <el-badge :value="12" class="mixcm-badge">
-        <a :href="item.urls.raw" download="233" class="download"><i class="nexmoefont icon-download"></i><p>下载</p></a>
+        <a :href="item.links.download+'?force=true'" download="233" class="download"><i class="nexmoefont icon-download"></i><p>下载</p></a>
       </el-badge>
     </div>
     <div class="mixcm-container mixcm-comment">
