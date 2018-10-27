@@ -2,8 +2,8 @@
   <div id="mixcm-content">
     <div class="mixcm-wallpaper">
       <div class="mixcm-pic">
-        <div class="mixcm-cover" v-on:click="$router.back(-1)">
-          <img :src="item.urls.regular">
+        <div class="mixcm-cover" v-on:click="$router.back(-1)" v-lazy-container="{ selector: 'img' }">
+          <img :data-src="item.urls.regular" :data-loading="item.urls.small">
           <div class="mixcm-major">
           </div>
         </div>
