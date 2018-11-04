@@ -1,7 +1,7 @@
 <template>
   <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="1000"
     infinite-scroll-throttle-delay="0">
-    <waterfall :line-gap="400" :min-line-gap="200" :max-line-gap="400" :watch="items" ref="waterfall">
+    <waterfall line="h" line-gap="300" min-line-gap="200" max-line-gap="400" :watch="items" ref="waterfall">
       <!-- each component is wrapped by a waterfall slot -->
       <waterfall-slot v-for="(item, index) in items" :key="item.id" :width="item.width" :height="item.height" :order="index">
         <div class="mixcm-item">
@@ -133,7 +133,6 @@
     height: calc(100% - 20px);
     width: calc(100% - 20px);
     margin: 10px;
-    border-radius: 3px;
     overflow: hidden;
     background-position: center;
     background-size: 200px;
@@ -163,7 +162,6 @@
     right: 0;
     top: 25px;
     z-index: 5;
-    border-radius: 0 3px 3px 0;
   }
 
   #mixcm-content .mixcm-item .class:before {

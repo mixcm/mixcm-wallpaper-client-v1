@@ -46,11 +46,12 @@
   }
 
   .mixcm-container {
-    max-width: 2000px;
+    max-width: calc(100% - 120px);
     position: relative;
     margin: 0 auto;
   }
 
+  /*
   @media screen and (max-width:2400px) {
     .mixcm-container {
       max-width: 2000px;
@@ -80,6 +81,7 @@
       max-width: 100%;
     }
   }
+  */
 
   #mixcm-content {
     /* animation: wish-appear .9s; */
