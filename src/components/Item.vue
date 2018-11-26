@@ -138,6 +138,7 @@
     background-size: 200px;
     background-repeat: no-repeat;
     background-image: url('../assets/loading.gif');
+    border-radius: 6px;
   }
 
   .vue-waterfall {
